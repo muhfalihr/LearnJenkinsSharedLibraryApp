@@ -3,7 +3,14 @@
 import muhfalihr.jenkins.Output;
 
 pipeline {
-    agent any
+    environment {
+        PATH = '/home/datadiri.txt'
+    }
+    agent {
+        node {
+            label 'node1'
+        }
+    }
     stages {
         stage('Hello Groovy') {
             steps {
@@ -33,6 +40,19 @@ pipeline {
                     echo "Username Telegram Saya : @${author()}"
                 }
             }
+        }
+        stage('Parameter implementation') {
+            steps [
+                script {
+                    def value = """
+Nama : Muhammad Falih Romadhoni
+Umur : 18 Tahun
+Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
+"""
+                    writeFile(file: "${env.PATH}", text: value)
+                    cat(this, "${env.PATH}")
+                }
+            ]
         }
     }
 }
