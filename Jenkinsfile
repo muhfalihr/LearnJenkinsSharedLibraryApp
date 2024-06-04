@@ -42,7 +42,7 @@ pipeline {
             }
         }
         stage('Parameter implementation') {
-            steps [
+            steps {
                 script {
                     def value = """
 Nama : Muhammad Falih Romadhoni
@@ -52,7 +52,7 @@ Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
                     writeFile(file: "${env.PATH}", text: value)
                     cat(this, "${env.PATH}")
                 }
-            ]
+            }
         }
     }
 }
