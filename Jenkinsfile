@@ -27,5 +27,12 @@ pipeline {
                 }
             }
         }
+        stage('Default Function') {
+            steps {
+                script {
+                    echo "Username Telegram Saya : @${author()}"
+                }
+            }
+        }
     }
 }
