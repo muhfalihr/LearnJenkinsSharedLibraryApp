@@ -52,5 +52,13 @@ Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
                 }
             }
         }
+        stage('List Parameter Implementaion') {
+            steps {
+                script {
+                    def fileNames = ["falih", "yusep", "romy"]
+                    write_display(this, fileNames)
+                }
+            }
+        }
     }
 }
