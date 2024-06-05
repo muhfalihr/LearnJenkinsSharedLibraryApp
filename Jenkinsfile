@@ -71,5 +71,17 @@ Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
                 }
             }
         }
+        stage('Library Resource') {
+            steps {
+                script {
+                    def config = libraryResource("config/build.json")
+                    def jsonObject = jsonToMap(config)
+                    def type = jsonObject.getClass().getSimpleName()
+                    
+                    echo "jsonObject = ${jsonObject}"
+                    echo "Data Type from jsonObject is ${type}"
+                }
+            }
+        }
     }
 }
