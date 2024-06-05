@@ -50,7 +50,7 @@ Umur : 18 Tahun
 Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
 """
                     writeFile(file: "${env.PATH}", text: value)
-                    cat("${env.PATH}")
+                    echo "${file_size(this, "${env.PATH}")}"
                 }
             }
         }
