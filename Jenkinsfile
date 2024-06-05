@@ -60,5 +60,16 @@ Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
                 }
             }
         }
+        stage('Map Parameter Implementation') {
+            steps {
+                script {
+                    def personalData = [
+                        [fullname: "Muhamad Falih Romadhoni", age: "18 yo", birthdate: "10-11-05"],
+                        [fullname: "Romy Saputra Sihananda", age: "18 yo", birthdate: "22-12-05"]
+                    ]
+                    personal_data(this, personalData)
+                }
+            }
+        }
     }
 }
