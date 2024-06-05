@@ -3,12 +3,9 @@
 import muhfalihr.jenkins.Output;
 
 pipeline {
-    environment {
-        PATH = '/home/datadiri.txt'
-    }
     agent {
         node {
-            label 'node1'
+            label 'node172'
         }
     }
     stages {
@@ -49,8 +46,9 @@ Nama : Muhammad Falih Romadhoni
 Umur : 18 Tahun
 Domisili : Parigi Baru, Pondok Aren, Tangerang Selatan
 """
-                    writeFile(file: "${env.PATH}", text: value)
-                    echo "${file_size(this, "${env.PATH}")}"
+                    writeFile(file: "datadiri.txt", text: value)
+                    def size = file_size(this, "datadiri.txt")
+                    echo "File Size : ${size}"
                 }
             }
         }
